@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movies App</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <style>
+    /* Define any necessary styles */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Movies App</h1>
+    <form id="movie-form">
+      <label for="title-input">Title:</label>
+      <input type="text" id="title-input" required>
+      <label for="rating-input">Rating:</label>
+      <input type="text" id="rating-input" required>
+      <button type="submit">Add Movie</button>
+    </form>
+    <div id="movie-list">
+      <!-- Movies will be appended here -->
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('#movie-form').submit(function(event) {
+        event.preventDefault();
+        var title = $('#title-input').val();
+        var rating = $('#rating-input').val();
+        var movieItem = $('<div class="movie-item">').append(
+          $('<h3>').text(title),
+          $('<p>').text('Rating: ' + rating),
+          $('<button>').text('Remove').click(function() {
+            $(this).parent().remove();
+          })
+        );
+        $('#movie-list').append(movieItem);
+        // Clear inputs
+        $('#title-input').val('');
+        $('#rating-input').val('');
+      });
+    });
+  </script>
+</body>
+</html>
