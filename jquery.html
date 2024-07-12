@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+  <style>
+    img {
+      max-width: 70%;
+    }
+
+    .image-center {
+      display: block;
+      margin: 10px auto;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+    // Scripts that manipulate initial styles or non-DOM-reliant actions
+    $(document).ready(function() {
+      console.log("Let’s get ready to party with jQuery!");
+      $('article img').addClass('image-center');
+      $('#title').css('font-size', Math.floor(Math.random() * 101) + 'px');
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1 id="title" class="text-center">Welcome to my website.</h1>
+    <div class="row">
+      <!-- Rest of your HTML content -->
+    </div>
+  </div>
+
+  <script>
+    // Scripts that manipulate DOM or rely on user interactions
+    $(document).ready(function() {
+      $('article p:last').remove();
+      $('ol').append('<li>This list item was added with jQuery!</li>');
+      $('aside').empty().append('<p>I apologize for the list. It has been removed.</p>');
+
+      $('input[type="number"]').on('input', function() {
+        var red = $('input:eq(0)').val();
+        var green = $('input:eq(1)').val();
+        var blue = $('input:eq(2)').val();
+        $('body').css('background-color', 'rgb(' + red + ',' + green + ',' + blue + ')');
+      });
+
+      $('img').on('click', function() {
+        $(this).remove();
+      });
+    });
+  </script>
+</body>
+</html>
